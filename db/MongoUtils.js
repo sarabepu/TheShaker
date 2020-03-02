@@ -13,6 +13,7 @@ function MongoUtils() {
   };
 
   mu.cocktails = {};
+  mu.users ={};
 
   mu.cocktails.find = query =>
     mu.connect().then(client => {
@@ -57,7 +58,27 @@ function MongoUtils() {
         .toArray()
         .finally(() => client.close());
     });
+
+    mu.users.insert = user =>
+    mu.connect().then(client => {
+      const usersCol = client.db(dbName).collection('users');
+
+      return usersCol.insertOne(user).finally(() => client.close());
+    });
+
+
+    mu.users.findUsers = user =>
+    mu.connect().then(client => {
+      const usersCol = client.db(dbName).collection('users');
+      return usersCol
+        .find()
+        .sort({ timestamp: -1 })
+        .toArray()
+        .finally(() => client.close());
+    });
     return mu;
+
+
 }
 
 module.exports = MongoUtils();

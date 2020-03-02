@@ -67,53 +67,46 @@ router.get("/searchCocktail:params", function(req, res) {
   });
 });
 
+router.get('/register', (req, res) => {
+  res.render('register')
+})
 
-router.get('/login', checkNotAuthenticated, (req, res) => {
+router.post("/register/create", (req, res) => {
+  console.log("params", req.body);
+  const user = {
+    name: req.body.name,
+    email: req.body.email,
+    id: new Date(),
+    password: req.body.password
+  };
+
+  mu.users.insert(user).then(res.redirect("/login"));
+});
+
+router.get("/login", (req, res)=>{
   res.render('login')
 })
 
-router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true
-}))
-
-router.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
-})
-
-
-router.post('/register', checkNotAuthenticated, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword
-    })
-    res.redirect('/login')
-  } catch {
-    res.redirect('/register')
-  }
-})
-
-
-
-function checkAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next()
-  }
-
-  res.redirect('/login')
-}
-
-function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return res.redirect('/')
-  }
-  next()
-}
+router.post("/login/check", (req, res) => {
+  console.log("params de login", req.body);
+  var userUsed = {};
+  mu.users.findUsers().then( users => {
+    console.log(users);
+    var tienePass = false;
+    for (var i = 0; i < users.length; i++) {
+      if(users[i].email === req.body.email && users[i].password === req.body.password){
+        tienePass = true;
+        userUsed = users[i];
+        break; 
+      }
+    }
+    if(tienePass){
+      return res.redirect("/");
+    }else{
+      return res.render("login");
+    }
+  })
+});
 
 
 module.exports = router;

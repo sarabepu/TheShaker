@@ -10,6 +10,7 @@ let session = require('express-session')
 let methodOverride = require('method-override')
 
 
+
 //Here is the passport authentication
 let initializePassport = require('./passport-config')
 
@@ -22,6 +23,7 @@ let app = express();
 app.use(flash());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser());
 
 // Setup server port
 var port = process.env.PORT || 8080;
@@ -77,21 +79,6 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 
-
-
-app.get('/login', checkNotAuthenticated, (req, res) => {
-  res.render('./views/login')
-})
-
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true
-}))
-
-app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
-})
 
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {

@@ -759,3 +759,18 @@ footer{
 	font-size: 20px;
 	text-transform: uppercase;
 }
+
+#name{
+	border:1px;
+	height: 30px;
+	width: 100px;
+	background-color: #2C384A;
+	color: white;
+}
+
+#registerButton{
+	height: 30px;
+	width: 100px;
+	background-color: #2C384A;
+	color: white;
+}
