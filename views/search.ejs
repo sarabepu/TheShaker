@@ -2,8 +2,16 @@
 <html>
 <head>
 	<title>TheShaker-Searcher</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<!-- Here is the css styling used in the html page  -->
 	<link rel="stylesheet" href="./css/style.css">
 	<!-- Here are the fonts that are added  -->
@@ -27,15 +35,15 @@
 				<input type="text" id="ingredientInput" name="">
 				<button class="btn btn-secondary" id="buttonSubmit" type="submit">Add Ingredient</button>
 			</form>
-			<h3 id="ingredientsTitle">
-				Ingredients Added: 
-			</h3>
+				<h3 id="ingredientsTitle">Ingredients Added: </h3>
+			<div id="log">
+			</div>
 		</div>
 		<div id="margin">	
 		</div>
 		<div id="responseCocktails">
 			<img id="cocktailId" src="./img/cocktail.svg">
-			<h1>Add Ingredients</h1>
+			<h1>Recipes List</h1>
 			<p id="ingredientsP">HERE ARE YOUR RECIPES</p>
 			<hr>
 			<div id="placeholder">
@@ -44,8 +52,33 @@
 				</p>
 			</div>
 			<hr>
+			<div id="recipesAll">
+					
+			</div>
 		</div>
 	</main>
-	
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	      	<div class="recipeFull">
+				<img id="imageGlass" src="./img/shot.svg">
+				<h1 class="modal-true-title"></h1>
+				<p class="ingredientsP">GREAT INGREDIENTS FOR GREAT COCKTAILS</p>
+				<h3><span>&#183;</span>INGREDIENTS<span>&#183;</span></h3>
+				<hr>
+				<div class="ingredientContainer">
+				</div>
+				<hr>
+				<h3><span>&#183;</span>DIRECTIONS<span>&#183;</span></h3>
+				<p class="directions"></p>
+				<hr>
+				<button type="button" class="btn btn-secondary btnClose" data-dismiss="modal">Close Recipe</button>
+				<hr>		
+			</div>
+	    </div>
+	  </div>
+	</div>
+
 </body>
 </html>

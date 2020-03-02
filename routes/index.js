@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var passport = require("passport");
 
 const mu = require("../db/MongoUtils.js");
 
@@ -17,66 +18,102 @@ router.get("/searchCocktail", function(req, res) {
   res.render("search", {})
 });
 
-router.get("/searchCocktail:params2", function(req, res) {
+router.get("/searchCocktailsss", function(req, res) {
   mu.cocktails.findManyByIngredient(ingredient).then(cocktails => {
     return res.render("search", {cocktails})
   });
 });
 
-router.get("/searchCocktail:params", function(req, res) {
-  const ingredients = ["Gin"];
-  mu.cocktails.findManyByIngredients(ingredients).then(cocktails => {
-    let cocktailSearched = [];
+router.get("/searchCocktailIngredient", function(req, res) {
+  const ingredient = req.query.ingredient;
+  mu.cocktails.findManyByIngredient(ingredient).then(cocktails => {
+    var hasIngredient = false;
+    console.log(ingredient);
     for (var i = 0; i < cocktails.length; i++) {
-      let hasAll = true;
-      for (var j = 0; j < ingredients.length; j++) {
-        for (var k = 0; k < cocktails[i].ingredients.length; k++) {
-          if(!cocktails[i].ingredients[k].name.include(ingredients[j])){
-            hasAll = false;
-          }
+      for (var k = 0; k < cocktails[i].ingredients.length; k++) {
+          if(cocktails[i].ingredients[k].name === ingredient){
+            hasIngredient = true;
+            break;
         }
-      }
-      if (hasAll) {
-        cocktailSearched.push(cocktails[i]);
-      }
+       }
     }
-    return res.render("index", {
-      cocktailSearched
-    })
+    console.log(hasIngredient);
+    return res.send(hasIngredient);
   });
 });
 
-//  Data endpoint
-router.get("/grades/:query", (req, res) => {
-  console.log("params", req.params);
-  const query = buildQuery(req.params.query);
 
-  mu.grades.find(query).then(grades => res.json(grades));
+router.get("/searchCocktail:params", function(req, res) {
+  const ingredients = req.query.ingredients;
+  mu.cocktails.findManyByIngredients(ingredients).then(cocktails => { 
+    let cocktailSearched = [];
+    for (var i = 0; i < cocktails.length; i++) {
+      let hasAll = false;
+      let number = 0;
+      for (var j = 0; j < ingredients.length; j++) {
+        for (var k = 0; k < cocktails[i].ingredients.length; k++) {
+          if(cocktails[i].ingredients[k].name === ingredients[j]){
+            hasAll = true;
+            number++;
+            break;
+          }
+        }
+      }
+      if (number == ingredients.length) {
+        cocktailSearched.push(cocktails[i]);
+      }
+    }
+    return res.send({cocktailSearched})
+  });
 });
 
-router.post("/grades/create", (req, res) => {
-  console.log("params", req.body);
 
-  const grade = {
-    name: req.body.name,
-    grade: +req.body.grade,
-    timestamp: new Date()
-  };
+router.get('/login', checkNotAuthenticated, (req, res) => {
+  res.render('login')
+})
 
-  mu.grades.insert(grade).then(res.redirect("/"));
-});
+router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}))
 
-// Server side rendering one grade
-router.get("/grade/:id", (req, res) => {
-  console.log("grade/id params", req.params);
+router.get('/register', checkNotAuthenticated, (req, res) => {
+  res.render('register.ejs')
+})
 
-  mu.grades
-    .findOneByID(req.params.id)
-    .then(grade => {
-      console.log("grade", grade);
-      return grade;
+
+router.post('/register', checkNotAuthenticated, async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
     })
-    .then(grade => res.render("grade_details", { grade }));
-});
+    res.redirect('/login')
+  } catch {
+    res.redirect('/register')
+  }
+})
+
+
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.redirect('/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
+
 
 module.exports = router;

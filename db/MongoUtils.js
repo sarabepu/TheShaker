@@ -37,7 +37,7 @@ function MongoUtils() {
   mu.cocktails.findManyByIngredient = ingredient =>
     mu.connect().then(client => {
       const cocktailCol = client.db(dbName).collection(colName);
-      let query = {strIngredient1: ingredient};      
+      let query = "";      
       // when searching by id we need to create an ObjectID
       return cocktailCol
         .find(query)
