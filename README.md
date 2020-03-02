@@ -29,7 +29,7 @@ Antoine Noreau // https://github.com/antonoro
 
 ## 4: Screenshot
 
-<a href="Screenshot.png">
+<img src="Screenshot.png" alt="Screenshot of main page">
 
 ## 5: Licence
 
