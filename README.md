@@ -33,4 +33,4 @@ Antoine Noreau // https://github.com/antonoro
 
 ## 5: Licence
 
-This project is licensed under the terms of the MIT <a href="https://github.com/antonoro/crispy-cocktails/blob/master/LICENSE">License</a>.
+This project is licensed under the terms of the MIT <a href="https://github.com/JuanOtalora/TheShaker/blob/authentication/LICENSE.md">License</a>.
