@@ -4,9 +4,7 @@
   "description": "this is the back for the front end app",
   "main": "index.js",
   "scripts": {
-    "start": "node --harmony server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-
+    "start": "node --harmony index.js"
   },
   "keywords": [
     "cocktail",
