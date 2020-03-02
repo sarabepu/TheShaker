@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TheShaker-Searcher</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
+	<!-- Here is the css styling used in the html page  -->
+	<link rel="stylesheet" href="./css/style.css">
+	<!-- Here are the fonts that are added  -->
+	<link href="https://fonts.googleapis.com/css?family=Catamaran:400,600,700&display=swap" rel="stylesheet">	
+</head>
+<body>
+	<%- include("./header.ejs") %>
+	<main id="searcherMain">
+		<div id="searchingSide">
+			<img src="./img/add.svg">
+			<h1>Add Ingredients</h1>
+			<p id="ingredientsP">GREAT INGREDIENTS FOR GREAT COCKTAILS</p>
+			<hr>
+			<div id="placeholder">
+				<p>Here is where you add ingredients that you have handily at your home. <br>
+				New recipes will appear in the right panel.
+				</p>
+			</div>
+			<hr>
+			<form>
+				<input type="text" id="ingredientInput" name="">
+				<button class="btn btn-secondary" id="buttonSubmit" type="submit">Add Ingredient</button>
+			</form>
+			<h3 id="ingredientsTitle">
+				Ingredients Added: 
+			</h3>
+		</div>
+		<div id="margin">	
+		</div>
+		<div id="responseCocktails">
+			<img id="cocktailId" src="./img/cocktail.svg">
+			<h1>Add Ingredients</h1>
+			<p id="ingredientsP">HERE ARE YOUR RECIPES</p>
+			<hr>
+			<div id="placeholder">
+				<p>Here you will find recipes we have found from across the world. <br>
+					Only the best of the best.
+				</p>
+			</div>
+			<hr>
+		</div>
+	</main>
+	
+</body>
+</html>

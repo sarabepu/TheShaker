@@ -1,0 +1,566 @@
+@font-face {
+  font-family: bodoni;
+  src: url(../fonts/bodoni.ttf);
+}
+
+
+body{
+	margin: 0;
+}
+
+
+#upperNav{
+	display: flex;
+	height: 40px;
+	background-color: #2C384A;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-end;
+
+}
+
+#upperNav p{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 400;
+	margin-right: 20px;
+}
+
+#upperNav a{
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+
+}
+
+#upperNav img{
+	height: 15px;
+	margin-right: 10px;
+
+}
+
+#mainHeader{
+	height: 155px;
+	background-color: #ECECEC;
+	display: flex;
+	align-items: center;
+	padding-left: 130px;
+	padding-right: 130px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+
+#logoDiv{
+	display: flex;
+	height: 100%;
+	width: 30%;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#logo{
+	color: white;
+	max-height: 70%;
+}
+
+#navBar{
+	display: flex;
+	height: 100%;
+	width: 70%;
+	align-items: center;	
+	padding-right: 80px;
+}
+
+#navBar a{
+	color: black;
+	font-family: 'Catamaran';
+	font-size: 14px;
+	text-decoration: none;
+	font-weight: 600;
+	padding-right: 40px;
+}
+
+.iconLink{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+
+main{
+	display: flex;
+	flex-direction: column;
+
+}
+
+#backgroundImage{
+	background-image: url('../img/gincocktail.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#backgroundImage #title{
+	color: white;
+	font-size: 65px;
+	font-family: bodoni;
+	margin:0px;
+}
+
+#backgroundImage #subtitle{
+	color: white;
+	font-family: 'Catamaran';
+	font-size: 25px;
+	margin:0px;
+	font-weight: 600;
+	
+}
+
+#backgroundImage button{
+	margin-top: 20px;
+	background-color: #2C384A;
+	color: white;
+	font-size: 18px;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	height: 50px;
+	width: 140px;
+	border-color: #2C384A;
+	-webkit-transition: background-color 1s ease-out;
+  	-moz-transition: background-color 1s ease-out;
+  	-o-transition: background-color 1s ease-out;
+  	transition: background-color 1s ease-out;
+
+}
+
+#backgroundImage button:hover{
+	background-color: white;
+	color: #2C384A;
+	-webkit-transition: background-color 1s ease-out;
+  	-moz-transition: background-color 1s ease-out;
+  	-o-transition: background-color 1s ease-out;
+  	transition: background-color 1s ease-out;
+}
+
+
+#mainImage{
+	max-width: 100%;
+}
+
+
+#mainPages{
+	margin-top: 60px;
+	display: flex;
+	padding-right: 295px;
+	padding-left: 295px;
+	justify-content: center;
+
+}
+
+#about{
+	background-image: url('../img/cocktailShaker.jpg');
+	height: 330px;
+	width: 330px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.8;
+	margin-right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+
+}
+
+#about:hover{
+	opacity: 1.0;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+}
+
+
+#about h4{
+	margin: 0;
+	color: white;
+	font-size: 30px;
+	font-family: bodoni;
+
+}
+
+#about p{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 50px;
+	margin: 0px;
+}
+
+#about hr{
+	color: white;
+	height: 10px; 
+	width: 80%;
+	border: 0px solid white; 
+	border-top-width: 4px;
+	margin: 0;
+
+}
+
+#blog{
+	background-image: url('../img/alcoholBlog.jpg');
+	height: 330px;
+	width: 330px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+
+}
+
+#blog:hover{
+	opacity: 1.0;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+}
+
+#blog h4{
+	margin: 0;
+	color: white;
+	font-size: 30px;
+	font-family: bodoni;
+
+}
+
+#blog p{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 50px;
+	margin: 0px;
+}
+
+#blog hr{
+	color: white;
+	height: 10px; 
+	width: 80%;
+	border: 0px solid white; 
+	border-top-width: 4px;
+	margin: 0;
+
+}
+
+
+#barCart{
+	background-image: url('../img/barCart.jpg');
+	height: 330px;
+	width: 330px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+
+}
+
+#barCart:hover{
+	opacity: 1.0;
+	-webkit-transition: opacity 1s ease-out;
+  	-moz-transition: opacity 1s ease-out;
+  	-o-transition: opacity 1s ease-out;
+  	transition: opacity 1s ease-out;
+}
+
+#barCart h4{
+	margin: 0;
+	color: white;
+	font-size: 30px;
+	font-family: bodoni;
+
+}
+
+#barCart p{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 50px;
+	margin: 0px;
+}
+
+#barCart hr{
+	color: white;
+	height: 10px; 
+	width: 80%;
+	border: 0px solid white; 
+	border-top-width: 4px;
+	margin: 0;
+
+}
+
+.innerLine{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90%;
+	width: 90%;
+	border: 2px solid white;
+	flex-direction: column;
+}
+
+
+#quote{
+	margin-top: 80px;
+	height: 300px;
+	width: 100%;
+	display: flex;
+	background-image: url('../img/patron2.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	justify-content: center;
+	align-items: center;
+
+}
+
+#quoteRectangle{
+	height: 170px;
+	width: 800px;
+	background-color: #2C384A;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.innerLine2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70%;
+	width: 93%;
+	border: 2px solid white;
+	flex-direction: column;
+}
+
+
+#mainQuote{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 18px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+
+
+}
+
+
+#author{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 10px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+
+}
+
+
+footer{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	background-color: #ECECEC;
+	margin-top: 140px;
+
+}
+
+
+#searcherMain{
+	display: flex;
+	flex-direction: row !important;
+	width: 100%;
+	justify-content: center;
+	background-color: #2C384A;
+	min-height: 100%;
+  	height: auto !important; /*min-height hack*/
+  	height: 100%;            /*min-height hack*/
+  	
+}
+
+#searchingSide{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 690px;
+	width: 45%;
+	background-color: #ECECEC;
+	margin-top: 20px;
+	margin-left: 20px;
+	background-image: url('../img/cornerTotal.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 125px;	
+
+}
+
+#searchingSide img{
+	height: 40px;
+	width: 40px;
+
+}
+
+#searchingSide h1{
+	font-family: bodoni;
+	font-size: 45px;
+	margin: 0px;
+	margin-bottom: 5px;
+}
+
+#searchingSide hr{
+	border-top: 1px solid #C4A963;
+	width: 80%;
+}
+
+
+#searchingSide form{
+	display: flex;
+	width: 80%;
+	flex-direction: column;
+}
+
+
+#margin{
+	width: 10%;
+}
+
+#responseCocktails{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 690px;
+	width: 45%;
+	background-color: #ECECEC;
+	margin-top: 20px;
+	margin-right: 20px;
+	background-image: url('../img/cornerTotal.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-top: 125px;	
+}
+
+
+#ingredientInput{
+	border-color: black;
+
+}
+
+#placeholder{
+	display: flex;
+	width: 80%;
+	background-color: #C4A963;
+	height: 70px;
+	justify-content: center;
+
+}
+
+#ingredientsP{
+	color: black;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 10px;
+	margin: 0px;
+
+}
+
+
+#placeholder p{
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 12px;
+	text-align: center;
+	font-style: italic;
+
+}
+
+#ingredientInput{
+	padding-left: 20px;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	width: 95%;
+	height: 55px;
+	font-size: 30px;
+	border: 0.1px;
+	margin-bottom: 10px;
+}
+
+#buttonSubmit{
+	width: 100%;
+	height: 45px;
+	background-color: black;
+	color: white;
+	font-family: 'Catamaran';
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#ingredientsTitle{
+	font-family: bodoni;
+	font-size: 30px;
+	margin: 0;
+}
+
+#cocktailId{
+	height: 40px;
+	width: 40px;
+}
+
+#responseCocktails hr{
+	border-top: 1px solid #C4A963;
+	width: 80%;
+}
+
+#responseCocktails h1{
+	font-family: bodoni;
+	font-size: 45px;
+	margin: 0px;
+	margin-bottom: 5px;
+}
+
+
