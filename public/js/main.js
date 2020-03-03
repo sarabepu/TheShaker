@@ -1,3 +1,6 @@
+
+
+//you should documentate this file
 var arrayIngredients = [];
 var arrayResults = [];
 var $ingredients = $( "#log" );
@@ -21,7 +24,6 @@ const callBackend = () => {
 		}
 	})
 }
-
 const callBackend2 = () =>{
 	$.ajax({
 		url: 'http://localhost:8080/searchCocktail:params',
