@@ -26,6 +26,13 @@ router.get("/searchCocktailsss", function(req, res) {
 
 router.get("/searchCocktailIngredient", function(req, res) {
   const ingredient = req.query.ingredient;
+  
+  /*You can improve your search using REGEX
+  const buildQuery = (query) => ({
+	title: new RegExp(`.*${ingredient}.*`, "i")
+});
+  */
+  
   mu.cocktails.findManyByIngredient(ingredient).then(cocktails => {
     var hasIngredient = false;
     console.log(ingredient);
